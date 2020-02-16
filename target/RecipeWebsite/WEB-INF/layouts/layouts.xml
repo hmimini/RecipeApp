@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+ <!-- 
+ Hermes Mimini & Isaiah Camacho
+ The layout file sets up the format of each page for the project.
+ This then takes in files for the header footer and body to compile the page fragments and create
+ a full HTML page.
+  -->
+ 
+<tiles-definitions>
+    <definition name="DefaultTemplate" template="/WEB-INF/layouts/template/defaultTemplate.jsp">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="header" value="/WEB-INF/layouts/template/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/template/footer.jsp"/>
+	</definition>
+</tiles-definitions>

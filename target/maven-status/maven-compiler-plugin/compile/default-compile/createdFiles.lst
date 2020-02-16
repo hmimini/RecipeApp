@@ -1,0 +1,12 @@
+com\gcu\business\UserBusinessService.class
+com\gcu\data\DataAccessInterface.class
+com\gcu\models\Credentials.class
+com\gcu\controller\UserController.class
+com\gcu\exception\DataServiceException.class
+com\gcu\models\Recipe.class
+com\gcu\controller\RecipeController.class
+com\gcu\models\User.class
+com\gcu\models\Principle.class
+com\gcu\business\UserBusinessInterface.class
+com\gcu\controller\HomePageController.class
+com\gcu\data\UserDataService.class
