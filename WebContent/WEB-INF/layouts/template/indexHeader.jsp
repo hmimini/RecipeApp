@@ -6,10 +6,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="/RecipeWebsite/loginRegistration/loginForm">Login</a>
+      <a class="nav-link" href="/loginRegistration/loginForm">Login</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/RecipeWebsite/loginRegistration/registrationForm">Registration</a>
+      <a class="nav-link" href="/loginRegistration/registrationForm">Registration</a>
     </li>
   </ul>
 </nav>
