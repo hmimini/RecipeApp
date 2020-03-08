@@ -15,7 +15,7 @@ User Name: ${user.credentials.username}<br>
 
 <table>
 	<tr>
-		<form:form method= "GET" action="/RecipeWebsite/loginRegistration/editUserForm">
+		<form:form method= "GET" action="/loginRegistration/editUserForm">
 			<input type= "submit" value= "Edit">
 		</form:form>
 	</tr>
