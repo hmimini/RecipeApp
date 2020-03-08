@@ -23,7 +23,7 @@ public class UserDataService implements DataAccessInterface<User> {
 	@Override
 	public List<User> viewAll() {
 		// Creates a SQL statement to be filled in later
-		String sql = "SELECT * FROM USERS INNER JOIN CREDENTIALS ON credentials_ID = CREDENTIALS.ID;";
+		String sql = "SELECT * FROM users INNER JOIN credentials ON credentials_ID = credentials.ID;";
 		
 		// Creates an ArrayList of users that will be filled with all the users from the
 		// database
@@ -51,7 +51,7 @@ public class UserDataService implements DataAccessInterface<User> {
 	@Override
 	public User viewById(int id) {
 		// Creates a SQL statement to be filled in later
-		String sql = "SELECT * FROM USERS INNER JOIN CREDENTIALS ON credentials_ID = CREDENTIALS.ID AND USERS.ID = ?;";
+		String sql = "SELECT * FROM users INNER JOIN credentials ON credentials_ID = credentials.ID AND users.ID = ?;";
 
 		// Creates an ArrayList of users that will be filled with all the users from the
 		// database
@@ -83,7 +83,7 @@ public class UserDataService implements DataAccessInterface<User> {
 		int returnNum = 0;
 
 		// Checks if the user is valid
-		String sqlValidUser = "SELECT * FROM CREDENTIALS WHERE USERNAME=?;";
+		String sqlValidUser = "SELECT * FROM credentials WHERE USERNAME=?;";
 
 		try {
 
@@ -91,7 +91,7 @@ public class UserDataService implements DataAccessInterface<User> {
 
 			if (srsFind.next() == false) {
 				String sqlInsertCreds = "INSERT INTO credentials(ID, USERNAME, PASSWORD) VALUES(NULL, ?, ?)";
-				String sqlInsertUser = "INSERT INTO USERS(ID, FIRSTNAME, LASTNAME, EMAIL, PHONENUMBER, credentials_ID) VALUES (NULL, ?, ?, ?, ?, ?)";
+				String sqlInsertUser = "INSERT INTO users(ID, FIRSTNAME, LASTNAME, EMAIL, PHONENUMBER, credentials_ID) VALUES (NULL, ?, ?, ?, ?, ?)";
 
 				try {
 					// Inputs inforamtion into the database for both credentials and user
