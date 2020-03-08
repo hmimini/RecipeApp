@@ -50,13 +50,13 @@ function ConfirmDialog(message) {
 
 <table>
 	<tr>
-		<form:form method= "GET" action="/RecipeWebsite/recipe/editRecipeForm">
+		<form:form method= "GET" action="/recipe/editRecipeForm">
 			<input type= "submit" value= "Edit">
 		</form:form>
 	</tr>
 	<tr>
 		<input type= "submit" value= "Delete" onclick='ConfirmDialog("Are you sure")'>
-		<form:form method= "POST" action="/RecipeWebsite/recipe/deleteRecipe" id="deleteForm">
+		<form:form method= "POST" action="/recipe/deleteRecipe" id="deleteForm">
 		</form:form>
 	</tr>
 </table>
