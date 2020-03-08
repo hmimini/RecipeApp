@@ -23,7 +23,7 @@
 			<td><label>${recipe.nutritionalInformation}</label></td>
 			<td><label>${recipe.price}</label></td>
 			<td>
-			<form:form method= "POST" action="/RecipeWebsite/recipe/fullRecipePost">
+			<form:form method= "POST" action="/recipe/fullRecipePost">
 				<input type="hidden" name="recipeName" value="${recipe.name}">
 				<input type="hidden" name="recipeDescription" value="${recipe.description}">
 				<input type="hidden" name="recipeNutritionalInformation" value="${recipe.nutritionalInformation}">
