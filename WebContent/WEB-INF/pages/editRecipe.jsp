@@ -1,11 +1,5 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix= "form"%>
 
- <!-- 
- Hermes Mimini and Bryce Schmisseur
- CST-341-TF300
- CLC Final Project
- Page fragment for displaying the user the login form page
-  -->
 <h2>Edit Blog</h2>
 <form:form method= "POST" modelAttribute= "recipe" action= "editRecipePost">
 	<table>
