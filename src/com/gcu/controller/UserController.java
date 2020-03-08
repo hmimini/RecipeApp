@@ -86,7 +86,9 @@ UserBusinessInterface service;
 		catch(Exception e)
 		{
 			e.printStackTrace();
-			return new ModelAndView("errorPageIndex");
+			ModelAndView modelAndView = new ModelAndView();
+			modelAndView.setViewName("errorPageIndex");
+			modelAndView.addObject(e);
 			
 		}
 

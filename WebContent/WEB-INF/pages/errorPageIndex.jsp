@@ -15,6 +15,7 @@
 	</tr>
 	<tr>
 		<td><p>We have seem to run into a problem processing your request! Please go back and try again!</p></td>
+		<td>${e.printStackTrace()}</td>
 	</tr>
 </table>
 </div>
