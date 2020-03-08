@@ -140,7 +140,7 @@ public class UserDataService implements DataAccessInterface<User> {
 		// Creates SQL statements to be filled in later
 		String sqlQuery = "SELECT CREDENTIALS_ID FROM USERS WHERE USERS.ID=?";
 		String sqlUpdateCred = "UPDATE CREDENTIALS SET USERNAME=?, PASSWORD=? WHERE ID=?";
-		String sqlUpdateUser = "Update USERS SET FIRSTNAME=?, LASTNAME=?, EMAIL=?, PHONENUMBER=? WHERE ID=?";
+		String sqlUpdateUser = "UPDATE USERS SET FIRSTNAME=?, LASTNAME=?, EMAIL=?, PHONENUMBER=? WHERE ID=?";
 
 		try {
 			// Updated information for both the crednetial and user information
