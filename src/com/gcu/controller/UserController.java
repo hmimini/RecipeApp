@@ -89,6 +89,7 @@ UserBusinessInterface service;
 			ModelAndView modelAndView = new ModelAndView();
 			modelAndView.setViewName("errorPageIndex");
 			modelAndView.addObject(e);
+			return modelAndView;
 			
 		}
 
