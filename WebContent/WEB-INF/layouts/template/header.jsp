@@ -6,19 +6,19 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="/RecipeWebsite/welcomepage/homepage">Home</a>
+      <a class="nav-link" href="/welcomepage/homepage">Home</a>
     </li>
     <li class="nav-item navbar-right">
-      <a class="nav-link" href="/RecipeWebsite/loginRegistration/userInformation">My Info</a>
+      <a class="nav-link" href="/loginRegistration/userInformation">My Info</a>
     </li>
      <li class="nav-item navbar-right">
-      <a class="nav-link" href="/RecipeWebsite/recipe/viewUserRecipe">My Recipes</a>
+      <a class="nav-link" href="/recipe/viewUserRecipe">My Recipes</a>
     </li>
     <li class="nav-item navbar-right">
-      <a class="nav-link" href="/RecipeWebsite/recipe/recipeForm">Post Recipe</a>
+      <a class="nav-link" href="/recipe/recipeForm">Post Recipe</a>
     </li>
     <li class="nav-item navbar-right">
-      <a class="nav-link" href="/RecipeWebsite">Logout</a>
+      <a class="nav-link" href="/">Logout</a>
     </li>
   </ul>
 </nav>
