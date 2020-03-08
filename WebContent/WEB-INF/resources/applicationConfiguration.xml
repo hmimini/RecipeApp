@@ -39,9 +39,9 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/recipeapp" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+			value="jdbc:mysql://localhost:3306/k2fqe1if4c7uowsh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com" />
+		<property name="username" value="lnbohaaycvc4lvkc" />
+		<property name="password" value="qyusjlsfqa186iyl" />
 	</bean>
 
 	<!-- Home Page Set -->
