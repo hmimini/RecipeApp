@@ -39,7 +39,7 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="mysql://lnbohaaycvc4lvkc:qyusjlsfqa186iyl@k2fqe1if4c7uowsh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/pxi6a0h6epb2tu95" />
+			value="jdbc:mysql://k2fqe1if4c7uowsh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/pxi6a0h6epb2tu95" />
 		<property name="username" value="lnbohaaycvc4lvkc" />
 		<property name="password" value="qyusjlsfqa186iyl" />
 	</bean>
