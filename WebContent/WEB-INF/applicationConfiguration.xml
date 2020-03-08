@@ -39,9 +39,9 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://k2fqe1if4c7uowsh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/pxi6a0h6epb2tu95" />
-		<property name="username" value="lnbohaaycvc4lvkc" />
-		<property name="password" value="qyusjlsfqa186iyl" />
+			value="jdbc:mysql://ehc1u4pmphj917qf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/revcbuty82e4jocw" />
+		<property name="username" value="iri6s55yruxvix60" />
+		<property name="password" value="rp272cgj3f82naq6" />
 	</bean>
 
 	<!-- Home Page Set -->
