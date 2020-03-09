@@ -27,7 +27,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public List<Recipe> viewAll() {
-		String sqlQuery = "SELECT * FROM RECIPES";
+		String sqlQuery = "SELECT * FROM recipes";
 
 		List<Recipe> recipeList = new ArrayList<Recipe>();
 
@@ -101,7 +101,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	public int delete(int id) {
 		int returnNum = 0;
 
-		String sqlDelete = "DELETE FROM `RECIPES` WHERE `RECIPES`.`ID` = ?";
+		String sqlDelete = "DELETE FROM `recipes` WHERE `recipes`.`ID` = ?";
 
 		try {
 			returnNum += jdbcTemplateObject.update(sqlDelete, id);
@@ -120,7 +120,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public List<Recipe> viewByParentId(int id) {
-		String sqlQuery = "SELECT * FROM RECIPES WHERE users_ID = ?";
+		String sqlQuery = "SELECT * FROM recipes WHERE users_ID = ?";
 
 		List<Recipe> recipeList = new ArrayList<Recipe>();
 
@@ -172,7 +172,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	@Override
 	public Recipe viewById(int id) {
 		// Creates a SQL to be filled in later
-		String sql = "SELECT * FROM RECIPES WHERE ID=?;";
+		String sql = "SELECT * FROM recipes WHERE ID=?;";
 
 		try {
 			// Gets a set of data from the database containing the Recipe that matched the

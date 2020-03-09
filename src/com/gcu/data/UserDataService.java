@@ -138,9 +138,9 @@ public class UserDataService implements DataAccessInterface<User> {
 		int returnNum = 0;
 
 		// Creates SQL statements to be filled in later
-		String sqlQuery = "SELECT CREDENTIALS_ID FROM USERS WHERE USERS.ID=?";
-		String sqlUpdateCred = "UPDATE CREDENTIALS SET USERNAME=?, PASSWORD=? WHERE ID=?";
-		String sqlUpdateUser = "UPDATE USERS SET FIRSTNAME=?, LASTNAME=?, EMAIL=?, PHONENUMBER=? WHERE ID=?";
+		String sqlQuery = "SELECT credentials_ID FROM users WHERE users.ID=?";
+		String sqlUpdateCred = "UPDATE credentials SET USERNAME=?, PASSWORD=? WHERE ID=?";
+		String sqlUpdateUser = "UPDATE users SET FIRSTNAME=?, LASTNAME=?, EMAIL=?, PHONENUMBER=? WHERE ID=?";
 
 		try {
 			// Updated information for both the crednetial and user information
@@ -148,7 +148,7 @@ public class UserDataService implements DataAccessInterface<User> {
 
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sqlQuery, id);
 			while (srs.next()) {
-				userCredNum = srs.getInt("CREDENTIALS_ID");
+				userCredNum = srs.getInt("credentials_ID");
 			}
 
 			int rowsChanged = jdbcTemplateObject.update(sqlUpdateCred, user.getCredentials().getUsername(),
