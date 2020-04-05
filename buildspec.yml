@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+    build:
+        commands:
+            - echo 'Building Services App............'
+            - mvn  clean package
+        
+artifacts:
+    files: '**/*'
+    base-directory: target/RecipeApp
+    
+cache:
+  paths:
+    - '/root/.m2/**/*'
