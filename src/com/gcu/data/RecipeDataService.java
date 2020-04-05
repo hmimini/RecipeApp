@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.gcu.exception.DataServiceException;
 import com.gcu.models.Principle;
 import com.gcu.models.Recipe;
@@ -21,12 +24,16 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 
 	@Autowired
 	Principle principle;
+	
+	Logger logger = LoggerFactory.getLogger(RecipeDataService.class);
 
 	/**
 	 * @see DataAccessInterface
 	 */
 	@Override
 	public List<Recipe> viewAll() {
+		logger.info("RecipeLogger---Class Entered: RecipeDataService.class, Method: viewAll()");
+		logger.info("RecipeLogger---Data Layer: Grabbing a list of all recipes");
 		String sqlQuery = "SELECT * FROM recipes";
 
 		List<Recipe> recipeList = new ArrayList<Recipe>();
@@ -53,6 +60,8 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public int create(Recipe recipe, int userID) {
+		logger.info("RecipeLogger---Class Entered: RecipeDataService.class, Method: create()");
+		logger.info("RecipeLogger---Data Layer: Creating a recipe with Name: " + recipe.getName());
 		int returnNum = 0;
 
 		try {
@@ -76,6 +85,8 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public int update(Recipe recipe, int id) {
+		logger.info("RecipeLogger---Class Entered: RecipeDataService.class, Method: update()");
+		logger.info("RecipeLogger---Data Layer: Updating recipe");
 		int returnNum = 0;
 
 		String sqlUpdate = "UPDATE `recipes` SET `NAME` = ?, `DESCRIPTION` = ?, `INGREDIENTS` = ?, `NUTRITIONAL_INFORMATION` = ?, `PRICE` = ?"
@@ -99,6 +110,8 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public int delete(int id) {
+		logger.info("RecipeLogger---Class Entered: RecipeDataService.class, Method: delete()");
+		logger.info("RecipeLogger---Data Layer: Deleting recipe with ID: " + id);
 		int returnNum = 0;
 
 		String sqlDelete = "DELETE FROM `recipes` WHERE `recipes`.`ID` = ?";
@@ -120,6 +133,8 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public List<Recipe> viewByParentId(int id) {
+		logger.info("RecipeLogger---Class Entered: RecipeDataService.class, Method: viewByParentId()");
+		logger.info("RecipeLogger---Data Layer: Grabbing a list of all recipes related to the ID: " + id);
 		String sqlQuery = "SELECT * FROM recipes WHERE users_ID = ?";
 
 		List<Recipe> recipeList = new ArrayList<Recipe>();
@@ -144,6 +159,8 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public Recipe viewByObject(Recipe recipe) {
+		logger.info("RecipeLogger---Class Entered: RecipeDataService.class, Method: viewByObject()");
+		logger.info("RecipeLogger---Data Layer: Grabbing a recipe by object");
 		// Creates a SQL to be filled in later
 		String sql = "SELECT * FROM recipes WHERE NAME=? AND NUTRITIONAL_INFORMATION=?;";
 
@@ -171,6 +188,8 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 	 */
 	@Override
 	public Recipe viewById(int id) {
+		logger.info("RecipeLogger---Class Entered: RecipeDataService.class, Method: viewById()");
+		logger.info("RecipeLogger---Data Layer: Grabbing a recipe by ID");
 		// Creates a SQL to be filled in later
 		String sql = "SELECT * FROM recipes WHERE ID=?;";
 

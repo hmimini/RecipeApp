@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.gcu.business.UserBusinessInterface;
 import com.gcu.models.Principle;
 import com.gcu.models.User;
@@ -24,6 +27,10 @@ UserBusinessInterface service;
 	@Autowired
 	Principle principle;
 	
+	Logger logger = LoggerFactory.getLogger(UserController.class);
+	
+	
+	
 	/**
 	 * Displays the registration form to the user with an empty user object
 	 * @return ModelAndView - sends the user to the registration page with a blank user
@@ -31,6 +38,8 @@ UserBusinessInterface service;
 	@RequestMapping(path="/registrationForm", method=RequestMethod.GET)
 	public ModelAndView displayRegistrationForm()
 	{
+		logger.info("RecipeLogger---Class Entered: UserController.class, Method: displayRegistrationForm()");
+		logger.info("Presentation Layer: RecipeLogger---User has accessed the registration from.");
 		return new ModelAndView("registration", "user", new User());
 	}
 	
@@ -41,6 +50,8 @@ UserBusinessInterface service;
 	@RequestMapping(path="/loginForm", method=RequestMethod.GET)
 	public ModelAndView displayLoginForm()
 	{
+		logger.info("RecipeLogger---Class Entered: UserController.class, Method: displayRegistrationForm()");
+		logger.info("Presentation Layer: RecipeLogger---User has accessed the login form.");
 		return new ModelAndView("login", "user", new Credentials());
 	}
 	
@@ -68,12 +79,16 @@ UserBusinessInterface service;
 			//If all Database actions were completed successfully
 			if(returnNum > 0)
 			{
+				logger.info("RecipeLogger---Class Entered: UserController.class, Method: registerUser()");
+				logger.info("Presentation Layer: RecipeLogger---User has registered successfully.");
 				return new ModelAndView("login", "user" , user.getCredentials());
 			}
 			
 			//If a user was already created with the same user name
 			else if(returnNum == -1)
 			{
+				logger.info("RecipeLogger---Class Entered: UserController.class, Method: registerUser()");
+				logger.info("Presentation Layer: RecipeLogger---User has failed to register.");
 				ModelAndView modelAndView = new ModelAndView();
 				user.setCredentials(new Credentials());
 				modelAndView.setViewName("registration");
@@ -117,12 +132,16 @@ UserBusinessInterface service;
 			//Validates users information 		
 			if(service.validateUsers(user))
 			{
+				logger.info("RecipeLogger---Class Entered: UserController.class, Method: loginUser()");
+				logger.info("Presentation Layer: RecipeLogger---User has logged in successfully.");
 				HomePageController homePageObject = new HomePageController();
 				return homePageObject.displayHomePage(user);
 			}
 			
 			else
 			{
+				logger.info("RecipeLogger---Class Entered: UserController.class, Method: loginUser()");
+				logger.info("Presentation Layer: RecipeLogger---Unsuccessful login, invalid credentials.");
 				ModelAndView modelAndView = new ModelAndView("login", "user", user);
 				modelAndView.addObject("message", "Invalid Credentials");
 				return modelAndView;
@@ -144,6 +163,8 @@ UserBusinessInterface service;
 	@RequestMapping(path="/userInformation", method=RequestMethod.GET)
 	public ModelAndView displayUserInfo()
 	{
+		logger.info("RecipeLogger---Class Entered: UserController.class, Method: displayUserInfo()");
+		logger.info("Presentation Layer: RecipeLogger---User accessing personal information.");
 		try
 		{
 			ModelAndView modelAndView = new ModelAndView("userInformation");
@@ -171,6 +192,8 @@ UserBusinessInterface service;
 	@RequestMapping(path="/editUserForm", method=RequestMethod.GET)
 	public ModelAndView displayEditUserFrom()
 	{
+		logger.info("RecipeLogger---Class Entered: UserController.class, Method: displayEditUserFrom()");
+		logger.info("Presentation Layer: RecipeLogger---User accessing editUserFrom.");
 		int userID = principle.getUserID();
 		User user = service.getCurrentUser(userID);
 		
@@ -188,6 +211,8 @@ UserBusinessInterface service;
 	@RequestMapping(path="/editUser", method=RequestMethod.POST)
 	public ModelAndView editUser(@Valid @ModelAttribute("user") User user, BindingResult result)
 	{
+		logger.info("RecipeLogger---Class Entered: UserController.class, Method: editUser()");
+		logger.info("Presentation Layer: RecipeLogger---User editing personal information.");
 		if(result.hasErrors())
 		{
 			return new ModelAndView("editUser", "user", user);

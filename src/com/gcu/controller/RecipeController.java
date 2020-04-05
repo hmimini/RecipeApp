@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.gcu.business.RecipeBusinessInterface;
 import com.gcu.models.Principle;
 import com.gcu.models.Recipe;
@@ -24,6 +27,8 @@ public class RecipeController {
 	//Initialize session
 	@Autowired
 	Principle principle;
+	
+	Logger logger = LoggerFactory.getLogger(RecipeController.class);
 
 	/**
 	 * This method will direct the user to the recipe form.
@@ -32,6 +37,8 @@ public class RecipeController {
 	 */
 	@RequestMapping(path = "/recipeForm", method = RequestMethod.GET)
 	public ModelAndView displayRecipeForm() {
+		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: displayRecipeFrom()");
+		logger.info("RecipeLogger---Presentation Layer: User has accessed recipe from!");
 		return new ModelAndView("recipeForm", "recipe", new Recipe());
 	}
 
@@ -44,12 +51,15 @@ public class RecipeController {
 	 */
 	@RequestMapping(path = "/postRecipe", method = RequestMethod.POST)
 	public ModelAndView postRecipe(@Valid @ModelAttribute("recipe") Recipe recipe, BindingResult result) {
+		logger.info("RecipeLogger---Presentation Layer: Class Entered: RecipeController.class, Method: postRecipe()");
 		if (result.hasErrors()) {
+			logger.info("RecipeLogger---Error trying to post new recipe!");
 			return new ModelAndView("recipeForm", "recipe", recipe);
 		}
 
 		try {
 			// Access Database to post recipe
+			logger.info("RecipeLogger---User has added a recipe");
 			recipeService.addRecipe(recipe, principle.getUserID());
 
 			return this.viewUserRecipe();
@@ -67,6 +77,8 @@ public class RecipeController {
 	 */
 	@RequestMapping(path = "/viewUserRecipe", method = RequestMethod.GET)
 	public ModelAndView viewUserRecipe() {
+		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: viewUserRecipe()");
+		logger.info("RecipeLogger---Presentation Layer: User viewing selected recipe.");
 		ModelAndView modelAndView = new ModelAndView("usersRecipes", "recipes",
 				recipeService.getUserRecipes(principle.getUserID()));
 		modelAndView.addObject("userID", principle.getUserID());
@@ -83,7 +95,9 @@ public class RecipeController {
 	 */
 	@RequestMapping(path = "/fullRecipePost", method = RequestMethod.POST)
 	public ModelAndView displayRecipePost(String recipeName, String recipeNutritionalInformation, double recipePrice) {
+		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: displayRecipePost()");
 		try {
+			logger.info("Presentation Layer: RecipeLogger---User viewing recipe");
 			Recipe newRecipe = new Recipe();
 			newRecipe.setName(recipeName);
 			newRecipe.setNutritionalInformation(recipeNutritionalInformation);
@@ -108,8 +122,10 @@ public class RecipeController {
 	@RequestMapping(path="/deleteRecipe", method=RequestMethod.POST)
 	public ModelAndView deleteBlog()
 	{
+		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: deleteRecipe()");
 		try
 		{
+			logger.info("Presentation Layer: User deleted recipe sucessfully");
 			recipeService.deleteRecipe(principle.getRecipe());
 			
 			return this.viewUserRecipe();
@@ -129,6 +145,8 @@ public class RecipeController {
 	@RequestMapping(path="/editRecipeForm", method=RequestMethod.GET)
 	public ModelAndView displayEditBlogForm()
 	{
+		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: displayEditRecipeForm()");
+		logger.info("Presentation Layer: RecipeLogger---User accessed recipe edit form");
 		return new ModelAndView("editRecipe", "recipe", recipeService.findRecipeById(principle.getRecipeID()));
 	}
 	
@@ -143,14 +161,17 @@ public class RecipeController {
 	@RequestMapping(path="/editRecipePost", method=RequestMethod.POST)
 	public ModelAndView editBlogPost(@Valid @ModelAttribute("recipe") Recipe recipe, BindingResult result)
 	{
+		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: editRecipePost()");
 		if(result.hasErrors())
 		{
+			logger.info("Presentation Layer: RecipeLogger---Error editing recipe.");
 			return new ModelAndView("editRecipe", "recipe", recipe);
 		}
 		
 		try
 		{
 			//Adding the user to the data base
+			logger.info("Presentation Layer: RecipeLogger---User edited recipe");
 			recipeService.editRecipe(recipe, principle.getRecipeID());
 			
 			return new ModelAndView("viewRecipePost", "recipe", recipeService.findRecipeById(principle.getRecipeID()));

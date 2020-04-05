@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.gcu.models.Credentials;
 import com.gcu.models.Principle;
 import com.gcu.data.DataAccessInterface;
@@ -25,6 +28,8 @@ public class UserBusinessService implements UserBusinessInterface {
 	
 	@Autowired
 	Principle principle;
+	
+	Logger logger = LoggerFactory.getLogger(UserBusinessService.class);
 
 	/**
 	 * @see UserBusinessInterface
@@ -32,6 +37,8 @@ public class UserBusinessService implements UserBusinessInterface {
 	@SuppressWarnings({ "unchecked" })
 	@Override
 	public Boolean validateUsers(Credentials user) {
+		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: validateUser()");
+		logger.info("RecipeLogger---Business Layer: User being validated with UserID" + user.getID());
 		// Initialize variable to set the user valid or not
 		boolean validUser = false;
 
@@ -58,6 +65,8 @@ public class UserBusinessService implements UserBusinessInterface {
 	@SuppressWarnings("unchecked")
 	@Override
 	public int registerUser(User user) {
+		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: registerUser()");
+		logger.info("RecipeLogger---Business Layer: User being registered.");
 		// Add user to database
 		return userDataService.create(user, -1);
 	}
@@ -68,6 +77,8 @@ public class UserBusinessService implements UserBusinessInterface {
 	@SuppressWarnings("unchecked")
 	@Override
 	public int updateUser(User user, int userID) {
+		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: updateUser()");
+		logger.info("RecipeLogger---Business Layer: User info being updated.");
 		return userDataService.update(user, userID);
 	}
 	
@@ -76,6 +87,8 @@ public class UserBusinessService implements UserBusinessInterface {
 	 */
 	@Override
 	public User getCurrentUser(int userID) {
+		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: getCurrentUser()");
+		logger.info("RecipeLogger---Business Layer: getting user with userID: " + userID);
 		return (User) userDataService.viewById(userID);
 	}
 }

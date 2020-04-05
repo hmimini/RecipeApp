@@ -38,10 +38,21 @@
 		class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://ehc1u4pmphj917qf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/revcbuty82e4jocw" />
-		<property name="username" value="iri6s55yruxvix60" />
-		<property name="password" value="rp272cgj3f82naq6" />
+		<!-- Heroku <property name="url" value="jdbc:mysql://ehc1u4pmphj917qf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/revcbuty82e4jocw" 
+			/> <property name="username" value="iri6s55yruxvix60" /> <property name="password" 
+			value="rp272cgj3f82naq6" /> -->
+		<!-- MAMP <property name="url"
+			value="jdbc:mysql://localhost:3306/recipeapp" />
+		<property name="username" value="root" />
+		<property name="password" value="root" /> -->
+		<!-- Azure
+		<property name="url" value="jdbc:mysql://127.0.0.1:53395/recipeapp" />
+		<property name="username" value="azure" />
+		<property name="password" value="6#vWHD_$" /> -->
+		<!-- AWS -->
+		<property name="url" value="jdbc:mysql://recipeapp.cxivk5qn5xlz.us-east-2.rds.amazonaws.com/recipeapp" />
+		<property name="username" value="hermes" />
+		<property name="password" value="mesi1234" />
 	</bean>
 
 	<!-- Home Page Set -->

@@ -3,6 +3,9 @@ package com.gcu.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,12 +19,16 @@ public class UserDataService implements DataAccessInterface<User> {
 	@SuppressWarnings("unused")
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
+	
+	Logger logger = LoggerFactory.getLogger(UserDataService.class);
 
 	/**
 	 * @see DataAccessInterface
 	 */
 	@Override
 	public List<User> viewAll() {
+		logger.info("RecipeLogger---Class Entered: UserDataService.class, Method: viewAll()");
+		logger.info("RecipeLogger---Data Layer: Grabbing a list of all users");
 		// Creates a SQL statement to be filled in later
 		String sql = "SELECT * FROM users INNER JOIN credentials ON credentials_ID = credentials.ID;";
 		
@@ -50,6 +57,8 @@ public class UserDataService implements DataAccessInterface<User> {
 	 */
 	@Override
 	public User viewById(int id) {
+		logger.info("RecipeLogger---Class Entered: UserDataService.class, Method: viewById()");
+		logger.info("RecipeLogger---Data Layer: Grabbing a user from database with ID: " + id);
 		// Creates a SQL statement to be filled in later
 		String sql = "SELECT * FROM users INNER JOIN credentials ON credentials_ID = credentials.ID AND users.ID = ?;";
 
@@ -79,6 +88,8 @@ public class UserDataService implements DataAccessInterface<User> {
 	 */
 	@Override
 	public int create(User user, int id) {
+		logger.info("RecipeLogger---Class Entered: UserDataService.class, Method: create()");
+		logger.info("RecipeLogger---Data Layer: Adding user to database with Firstname: " + user.getFirstName());
 
 		int returnNum = 0;
 
@@ -135,6 +146,8 @@ public class UserDataService implements DataAccessInterface<User> {
 	 */
 	@Override
 	public int update(User user, int id) {
+		logger.info("RecipeLogger---Class Entered: UserDataService.class, Method: update()");
+		logger.info("RecipeLogger---Data Layer: Updating user information with ID: " + id);
 		int returnNum = 0;
 
 		// Creates SQL statements to be filled in later

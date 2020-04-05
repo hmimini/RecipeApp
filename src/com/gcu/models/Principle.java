@@ -49,10 +49,6 @@ public class Principle
 		this.recipeID = recipeID;
 	}
 
-	public String getUserName() {
-		return username;
-	}
-
 	public void setUserName(String username) {
 		this.username = username;
 	}
