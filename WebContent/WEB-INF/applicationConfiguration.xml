@@ -33,7 +33,7 @@
 		</property>
 	</bean>
 
-	<!-- MySQL Datasource -->
+	<!-- MySQL Datasourcee -->
 	<bean id="dataSource" destroy-method="close"
 		class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"
