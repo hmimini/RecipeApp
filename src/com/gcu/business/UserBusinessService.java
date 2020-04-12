@@ -13,7 +13,7 @@ import com.gcu.data.DataAccessInterface;
 import com.gcu.models.User;
 
 /**
- * This is the business service for the User model, all the logic that connects
+ * This is the business service for the User, all the logic that connects
  * the controller and the database is used in here.
  * 
  * @author Hermes Mimini
