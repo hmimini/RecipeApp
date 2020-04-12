@@ -27,6 +27,7 @@ public interface RecipeBusinessInterface {
 	 * This method will utilize the recipeDataService and return a list of recipes
 	 * in the database that are unique to the user that is calling it.
 	 * 
+	 * @param ID - The ID of the Users Recipes grabbed
 	 * @return list - List(Type Recipe) Class (List of all recipes in the database.)
 	 */
 	public List<Recipe> getUserRecipes(int ID);
@@ -36,7 +37,7 @@ public interface RecipeBusinessInterface {
 	 * after the recipe is added it will return a Boolean.
 	 * 
 	 * @param recipe - Recipe Class (Recipe that will be added to the database.)
-	 * @param uniqueId The foreign key of the user.
+	 * @param userID The foreign key of the user.
 	 * @return Boolean Class - (Boolean value depending on the result of the
 	 *         dataService.)
 	 */
@@ -58,7 +59,7 @@ public interface RecipeBusinessInterface {
 	 * recipeDataService.
 	 * 
 	 * @param recipe - Recipe Class (Recipe that will be updated in the database.)
-	 * @param recipeId - The foreign key.
+	 * @param id - The foreign key.
 	 * @return Boolean Class - (Boolean value depending on the result of the
 	 *         dataService.)
 	 */

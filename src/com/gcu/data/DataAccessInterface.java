@@ -34,7 +34,7 @@ public interface DataAccessInterface<T> {
     /**
      * This method will return a List of Objects to the BusinessService.
      * 
-     * @return List<T>
+     * @return List - List of all objects
      */
     public List<T> viewAll();
     
@@ -42,7 +42,7 @@ public interface DataAccessInterface<T> {
      * This method will return an Object to the BusinessService given its ID
      * 
      * @param id - ID of the Object
-     * @return
+     * @return T - Returns the Object based on the ID sent
      */
     public T viewById(int id);
     
@@ -50,7 +50,7 @@ public interface DataAccessInterface<T> {
      * This method will return a list of objects that are connected to the ParentID.
      * 
      * @param parentId - ID of the Parent
-     * @return List<T>
+     * @return List - List of Objects based on parent ID
      */
     public List<T> viewByParentId(int parentId);
     

@@ -28,7 +28,7 @@ public class RecipeRestService
 	
 	/**
 	 * A method to return all recipes from database in JSON formated data
-	 * @return recipePost - List<Recipe> - List containing all Recipes in the database
+	 * @return List - List containing all Recipes in the database
 	 */
 	@GetMapping("/recipes")	
 	public List<Recipe> getAllRecipes()
@@ -41,10 +41,10 @@ public class RecipeRestService
 	/**
 	 * A method to return Recipes from database based on a specified user id in JSON formated data
 	 * @param userID - int - Integer to link the user to the database
-	 * @return recipePosts - List<Recipe> - refined list containing Recipes in the database
+	 * @return List - refined list containing Recipes in the database
 	 */
 	@GetMapping("/userRecipes")
-	public List<Recipe> getUserBlogs(int userID)
+	public List<Recipe> getUserRecipes(int userID)
 	{
 		List<Recipe> recipePosts = service.getUserRecipes(userID);
 		

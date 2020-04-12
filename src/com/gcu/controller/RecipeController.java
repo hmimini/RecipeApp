@@ -156,7 +156,7 @@ public class RecipeController {
 	 * 
 	 * @param recipe - Recipe 
 	 * @param result - BindingResult
-	 * @return
+	 * @return ModelAndView - The edit recipe from
 	 */
 	@RequestMapping(path="/editRecipePost", method=RequestMethod.POST)
 	public ModelAndView editBlogPost(@Valid @ModelAttribute("recipe") Recipe recipe, BindingResult result)
@@ -185,8 +185,8 @@ public class RecipeController {
 	}
 
 	/**
-	 * setRecipeBusinessService is used to inject out data service through IoC and Dependecy Injection
-	 * @param service - RecipeBusinessInterface - service in order to interact with the recipe service
+	 * setRecipeBusinessService is used to inject out data service through IoC and Dependency Injection
+	 * @param recipeService - RecipeBusinessInterface - service in order to interact with the recipe service
 	 */
 	@Autowired
 	public void setRecipeBusinessService(RecipeBusinessInterface recipeService) {

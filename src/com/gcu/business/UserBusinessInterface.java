@@ -39,6 +39,8 @@ public interface UserBusinessInterface {
 	
 	/**
 	 * getCurrentUser takes in a userID a returns a filled out user model from the data service
+	 * 
+	 * @param userID - The ID of the User that is searched
 	 * @return user - User - object containing all the information of the properties
 	 */
 	public User getCurrentUser(int userID);

@@ -183,7 +183,6 @@ public class UserDataService implements DataAccessInterface<User> {
 
 	/**
 	 * @see DataAccessInterface
-	 * @info LATER IMPLEMENTED
 	 */
 	@Override
 	public int delete(int id) {
@@ -193,7 +192,6 @@ public class UserDataService implements DataAccessInterface<User> {
 
 	/**
 	 * @see DataAccessInterface
-	 * @info LATER IMPLEMENTED
 	 */
 	@Override
 	public List<User> viewByParentId(int parentId) {
@@ -203,7 +201,6 @@ public class UserDataService implements DataAccessInterface<User> {
 
 	/**
 	 * @see DataAccessInterface
-	 * @info LATER IMPLEMENTED
 	 */
 	@Override
 	public User viewByObject(User t) {

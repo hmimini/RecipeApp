@@ -83,7 +83,7 @@ public class UserBusinessService implements UserBusinessInterface {
 	}
 	
 	/**
-	 * @see UserBuesinessInterface
+	 * @see UserBusinessInterface
 	 */
 	@Override
 	public User getCurrentUser(int userID) {
