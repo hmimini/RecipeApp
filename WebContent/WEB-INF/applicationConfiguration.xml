@@ -40,9 +40,9 @@
 			value="com.mysql.jdbc.Driver" />
 		<!-- Heroku -->
 		 <property name="url"
-		  value="jdbc:mysql://ehc1u4pmphj917qf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/revcbuty82e4jocw"/> 
-		  <property name="username" value="iri6s55yruxvix60" /> 
-		  <property name="password" value="rp272cgj3f82naq6" /> 
+		  value="jdbc:mysql://k2fqe1if4c7uowsh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/sf6bdlz1us5iq5je"/> 
+		  <property name="username" value="ayc29k017xgdb6em" /> 
+		  <property name="password" value="v4izluo8hraa8nbr" /> 
 		<!-- MAMP <property name="url"
 			value="jdbc:mysql://localhost:3306/recipeapp" />
 		<property name="username" value="root" />
