@@ -50,7 +50,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 	public int addRecipe(Recipe recipe, int userID) {
 		logger.info("RecipeLogger---Class Entered: RecipeBusinessService.class, Method: addRecipe()");
 		logger.info("RecipeLogger---Business Layer: User adding a recipe");
-		// call the create dataService function
+		// call the create dataService functionn
 		logger.info("RecipeLogger---Method Exited: addRecipe() ,Class: RecipeBusinessService.class");
 		return recipeDataService.create(recipe, userID);
 
