@@ -38,6 +38,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 		logger.info("RecipeLogger---Class Entered: RecipeBusinessService.class, Method: getRecipes()");
 		logger.info("RecipeLogger---Business Layer: List of all recipes being grabbed");
 		// call the recipeDataService to return the recipe list
+		logger.info("RecipeLogger---Method Exited: getRecipes() ,Class: RecipeBusinessService.class");
 		return recipeDataService.viewAll();
 	}
 
@@ -50,6 +51,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 		logger.info("RecipeLogger---Class Entered: RecipeBusinessService.class, Method: addRecipe()");
 		logger.info("RecipeLogger---Business Layer: User adding a recipe");
 		// call the create dataService function
+		logger.info("RecipeLogger---Method Exited: addRecipe() ,Class: RecipeBusinessService.class");
 		return recipeDataService.create(recipe, userID);
 
 	}
@@ -62,6 +64,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 		logger.info("RecipeLogger---Class Entered: RecipeBusinessService.class, Method: deleteRecipe()");
 		logger.info("RecipeLogger---Business Layer: User deleting recipe");
 		// call the create dataService function
+		logger.info("RecipeLogger---Method Exited: deleteRecipe() ,Class: RecipeBusinessService.class");
 		return recipeDataService.delete(principle.getRecipeID());
 	}
 
@@ -74,6 +77,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 		logger.info("RecipeLogger---Class Entered: RecipeBusinessService.class, Method: editRecipe()");
 		logger.info("RecipeLogger---Business Layer: User editing recipe");
 		// call the create dataService function
+		logger.info("RecipeLogger---Method Exited: editRecipe() ,Class: RecipeBusinessService.class");
 		return recipeDataService.update(recipe, id);
 	}
 	
@@ -86,6 +90,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 	{
 		logger.info("RecipeLogger---Class Entered: RecipeBusinessService.class, Method: findRecipeByObject()");
 		logger.info("RecipeLogger---Business Layer: User searching for recipe");
+		logger.info("RecipeLogger---Method Exited: findRecipeByObject() ,Class: RecipeBusinessService.class");
 		return (Recipe) recipeDataService.viewByObject(recipe);
 	}
 	
@@ -97,6 +102,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 	{
 		logger.info("RecipeLogger---Class Entered: RecipeBusinessService.class, Method: findRecipeById()");
 		logger.info("RecipeLogger---Business Layer: Finding by recipe ID");
+		logger.info("RecipeLogger---Method Exited: findRecipeById() ,Class: RecipeBusinessService.class");
 		return (Recipe) recipeDataService.viewById(id);
 	}
 
@@ -108,6 +114,7 @@ public class RecipeBusinessService implements RecipeBusinessInterface {
 	public List<Recipe> getUserRecipes(int ID) {
 		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: getUserRecipes()");
 		logger.info("RecipeLogger---Business Layer: Greabbing users recipe");
+		logger.info("RecipeLogger---Method Exited: getUserRecipes() ,Class: RecipeBusinessService.class");
 		return recipeDataService.viewByParentId(principle.getUserID());
 	}
 

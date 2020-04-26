@@ -39,6 +39,7 @@ public class RecipeController {
 	public ModelAndView displayRecipeForm() {
 		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: displayRecipeFrom()");
 		logger.info("RecipeLogger---Presentation Layer: User has accessed recipe from!");
+		logger.info("RecipeLogger---Method Exited: displayRecipeForm() ,Class: RecipeController.class");
 		return new ModelAndView("recipeForm", "recipe", new Recipe());
 	}
 
@@ -54,6 +55,7 @@ public class RecipeController {
 		logger.info("RecipeLogger---Presentation Layer: Class Entered: RecipeController.class, Method: postRecipe()");
 		if (result.hasErrors()) {
 			logger.info("RecipeLogger---Error trying to post new recipe!");
+			logger.info("RecipeLogger---Method Exited: postRecipe() ,Class: RecipeController.class");
 			return new ModelAndView("recipeForm", "recipe", recipe);
 		}
 
@@ -82,6 +84,7 @@ public class RecipeController {
 		ModelAndView modelAndView = new ModelAndView("usersRecipes", "recipes",
 				recipeService.getUserRecipes(principle.getUserID()));
 		modelAndView.addObject("userID", principle.getUserID());
+		logger.info("RecipeLogger---Method Exited: viewUserRecipe() ,Class: RecipeController.class");
 		return modelAndView;
 	}
 
@@ -105,7 +108,7 @@ public class RecipeController {
 			Recipe currentRecipe = recipeService.findRecipeByObject(newRecipe);
 			principle.setRecipeID(currentRecipe.getID());
 			principle.setRecipe(currentRecipe);
-
+			logger.info("RecipeLogger---Method Exited: displayRecipePost() ,Class: RecipeController.class");
 			return new ModelAndView("viewRecipePost", "recipe", currentRecipe);
 		}
 
@@ -120,14 +123,14 @@ public class RecipeController {
 	 * @return ModelAndView Class
 	 */
 	@RequestMapping(path="/deleteRecipe", method=RequestMethod.POST)
-	public ModelAndView deleteBlog()
+	public ModelAndView deleteRecipe()
 	{
 		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: deleteRecipe()");
 		try
 		{
 			logger.info("Presentation Layer: User deleted recipe sucessfully");
 			recipeService.deleteRecipe(principle.getRecipe());
-			
+			logger.info("RecipeLogger---Method Exited: deleteRecipe() ,Class: RecipeController.class");
 			return this.viewUserRecipe();
 		}
 		
@@ -143,10 +146,11 @@ public class RecipeController {
 	 * @return ModelAndView Class
 	 */
 	@RequestMapping(path="/editRecipeForm", method=RequestMethod.GET)
-	public ModelAndView displayEditBlogForm()
+	public ModelAndView displayEditRecipeForm()
 	{
 		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: displayEditRecipeForm()");
 		logger.info("Presentation Layer: RecipeLogger---User accessed recipe edit form");
+		logger.info("RecipeLogger---Method Exited: displayEditRecipeForm() ,Class: RecipeController.class");
 		return new ModelAndView("editRecipe", "recipe", recipeService.findRecipeById(principle.getRecipeID()));
 	}
 	
@@ -159,12 +163,13 @@ public class RecipeController {
 	 * @return ModelAndView - The edit recipe from
 	 */
 	@RequestMapping(path="/editRecipePost", method=RequestMethod.POST)
-	public ModelAndView editBlogPost(@Valid @ModelAttribute("recipe") Recipe recipe, BindingResult result)
+	public ModelAndView editRecipePost(@Valid @ModelAttribute("recipe") Recipe recipe, BindingResult result)
 	{
 		logger.info("RecipeLogger---Class Entered: RecipeController.class, Method: editRecipePost()");
 		if(result.hasErrors())
 		{
 			logger.info("Presentation Layer: RecipeLogger---Error editing recipe.");
+			logger.info("RecipeLogger---Method Exited: editRecipePost() ,Class: RecipeController.class");
 			return new ModelAndView("editRecipe", "recipe", recipe);
 		}
 		
@@ -173,7 +178,7 @@ public class RecipeController {
 			//Adding the user to the data base
 			logger.info("Presentation Layer: RecipeLogger---User edited recipe");
 			recipeService.editRecipe(recipe, principle.getRecipeID());
-			
+			logger.info("RecipeLogger---Method Exited: editRecipePost() ,Class: RecipeController.class");
 			return new ModelAndView("viewRecipePost", "recipe", recipeService.findRecipeById(principle.getRecipeID()));
 		}
 		

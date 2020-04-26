@@ -40,6 +40,7 @@ UserBusinessInterface service;
 	{
 		logger.info("RecipeLogger---Class Entered: UserController.class, Method: displayRegistrationForm()");
 		logger.info("Presentation Layer: RecipeLogger---User has accessed the registration from.");
+		logger.info("RecipeLogger---Method Exited: displayRegistrationForm() ,Class: UserController.class");
 		return new ModelAndView("registration", "user", new User());
 	}
 	
@@ -52,6 +53,7 @@ UserBusinessInterface service;
 	{
 		logger.info("RecipeLogger---Class Entered: UserController.class, Method: displayRegistrationForm()");
 		logger.info("Presentation Layer: RecipeLogger---User has accessed the login form.");
+		logger.info("RecipeLogger---Method Exited: displayLoginForm() ,Class: UserController.class");
 		return new ModelAndView("login", "user", new Credentials());
 	}
 	
@@ -81,6 +83,7 @@ UserBusinessInterface service;
 			{
 				logger.info("RecipeLogger---Class Entered: UserController.class, Method: registerUser()");
 				logger.info("Presentation Layer: RecipeLogger---User has registered successfully.");
+				logger.info("RecipeLogger---Method Exited: registerUser() ,Class: UserController.class");
 				return new ModelAndView("login", "user" , user.getCredentials());
 			}
 			
@@ -94,6 +97,7 @@ UserBusinessInterface service;
 				modelAndView.setViewName("registration");
 				modelAndView.addObject("user", user);
 				modelAndView.addObject("message", new String("That User Name is Already Taken!"));
+				logger.info("RecipeLogger---Method Exited: registerUser() ,Class: UserController.class");
 				return modelAndView; 
 			}
 		}
@@ -135,6 +139,7 @@ UserBusinessInterface service;
 				logger.info("RecipeLogger---Class Entered: UserController.class, Method: loginUser()");
 				logger.info("Presentation Layer: RecipeLogger---User has logged in successfully.");
 				HomePageController homePageObject = new HomePageController();
+				logger.info("RecipeLogger---Method Exited: loginUser() ,Class: UserController.class");
 				return homePageObject.displayHomePage(user);
 			}
 			
@@ -144,6 +149,7 @@ UserBusinessInterface service;
 				logger.info("Presentation Layer: RecipeLogger---Unsuccessful login, invalid credentials.");
 				ModelAndView modelAndView = new ModelAndView("login", "user", user);
 				modelAndView.addObject("message", "Invalid Credentials");
+				logger.info("RecipeLogger---Method Exited: loginUser() ,Class: UserController.class");
 				return modelAndView;
 			}
 		}
@@ -175,6 +181,7 @@ UserBusinessInterface service;
 			
 			
 			modelAndView.addObject("user", returnUser);
+			logger.info("RecipeLogger---Method Exited: displayUserInfo() ,Class: UserController.class");
 			return modelAndView;
 		}
 		
@@ -198,6 +205,7 @@ UserBusinessInterface service;
 		User user = service.getCurrentUser(userID);
 		
 		ModelAndView modelAndView = new ModelAndView("editUser", "user", user);
+		logger.info("RecipeLogger---Method Exited: displayEditUserFrom() ,Class: UserController.class");
 		return modelAndView;
 	}
 	
@@ -224,7 +232,7 @@ UserBusinessInterface service;
 		{
 			//Adding the user to the data base
 			service.updateUser(user, userID);
-			
+			logger.info("RecipeLogger---Method Exited: editUser() ,Class: UserController.class");
 			return new ModelAndView("userInformation");
 		}
 		

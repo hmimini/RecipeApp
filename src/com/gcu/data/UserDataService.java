@@ -48,7 +48,7 @@ public class UserDataService implements DataAccessInterface<User> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		logger.info("RecipeLogger---Method Exited: viewAll() ,Class: UserDataService.class");
 		return userList;
 	}
 
@@ -79,7 +79,7 @@ public class UserDataService implements DataAccessInterface<User> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: viewById() ,Class: UserDataService.class");
 		return currentUser;
 	}
 
@@ -118,7 +118,6 @@ public class UserDataService implements DataAccessInterface<User> {
 
 					rows += jdbcTemplateObject.update(sqlInsertUser, user.getFirstName(), user.getLastName(),
 							user.getEmail(), user.getPhoneNumber(), userCredID);
-
 					returnNum = rows;
 				}
 
@@ -137,7 +136,7 @@ public class UserDataService implements DataAccessInterface<User> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: create() ,Class: UserDataService.class");
 		return returnNum;
 	}
 
@@ -177,7 +176,7 @@ public class UserDataService implements DataAccessInterface<User> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: update() ,Class: UserDataService.class");
 		return returnNum;
 	}
 

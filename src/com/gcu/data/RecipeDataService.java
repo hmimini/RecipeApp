@@ -51,7 +51,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: viewAll() ,Class: RecipeDataService.class");
 		return recipeList;
 	}
 
@@ -76,7 +76,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: create() ,Class: RecipeDataService.class");
 		return returnNum;
 	}
 
@@ -101,7 +101,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: update() ,Class: RecipeDataService.class");
 		return returnNum;
 	}
 
@@ -124,7 +124,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: delete() ,Class: RecipeDataService.class");
 		return returnNum;
 	}
 
@@ -150,7 +150,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 			e.printStackTrace();
 			throw new DataServiceException(e);
 		}
-
+		logger.info("RecipeLogger---Method Exited: viewByParentId() ,Class: RecipeDataService.class");
 		return recipeList;
 	}
 
@@ -175,6 +175,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 			principle.setRecipeID(srs.getInt("ID"));
 
 			// returns back the blog information
+			logger.info("RecipeLogger---Method Exited: viewByObject() ,Class: RecipeDataService.class");
 			return new Recipe(srs.getInt("ID"), srs.getString("NAME"), srs.getString("DESCRIPTION"),
 					srs.getString("INGREDIENTS"), srs.getString("NUTRITIONAL_INFORMATION"), srs.getInt("PRICE"));
 		} catch (Exception e) {
@@ -203,6 +204,7 @@ public class RecipeDataService implements DataAccessInterface<Recipe> {
 			principle.setRecipeID(srs.getInt("ID"));
 
 			// returns back the Recipe information
+			logger.info("RecipeLogger---Method Exited: viewById() ,Class: RecipeDataService.class");
 			return new Recipe(srs.getInt("ID"), srs.getString("NAME"), srs.getString("DESCRIPTION"),
 					srs.getString("INGREDIENTS"), srs.getString("NUTRITIONAL_INFORMATION"), srs.getInt("PRICE"));
 		} catch (Exception e) {

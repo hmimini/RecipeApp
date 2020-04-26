@@ -55,7 +55,7 @@ public class UserBusinessService implements UserBusinessInterface {
 				break;
 			}
 		}
-
+		logger.info("RecipeLogger---Method Exited: validateUsers() ,Class: UserBusinessService.class");
 		return validUser;
 	}
 
@@ -68,6 +68,7 @@ public class UserBusinessService implements UserBusinessInterface {
 		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: registerUser()");
 		logger.info("RecipeLogger---Business Layer: User being registered.");
 		// Add user to database
+		logger.info("RecipeLogger---Method Exited: registerUser() ,Class: UserBusinessService.class");
 		return userDataService.create(user, -1);
 	}
 	
@@ -79,6 +80,7 @@ public class UserBusinessService implements UserBusinessInterface {
 	public int updateUser(User user, int userID) {
 		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: updateUser()");
 		logger.info("RecipeLogger---Business Layer: User info being updated.");
+		logger.info("RecipeLogger---Method Exited: updateUser() ,Class: UserBusinessService.class");
 		return userDataService.update(user, userID);
 	}
 	
@@ -89,6 +91,7 @@ public class UserBusinessService implements UserBusinessInterface {
 	public User getCurrentUser(int userID) {
 		logger.info("RecipeLogger---Class Entered: UserBusinessService.class, Method: getCurrentUser()");
 		logger.info("RecipeLogger---Business Layer: getting user with userID: " + userID);
+		logger.info("RecipeLogger---Method Exited: getCurrentUser() ,Class: UserBusinessService.class");
 		return (User) userDataService.viewById(userID);
 	}
 }

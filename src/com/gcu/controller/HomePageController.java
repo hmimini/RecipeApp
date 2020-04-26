@@ -37,6 +37,8 @@ public class HomePageController
 	{
 		logger.info("RecipeLogger---Presentation Layer: User has accessed the homepage!");
 		logger.info("RecipeLogger---Class Entered: HomePageController.class, Method: displayHomePage()");
+		logger.info("RecipeLogger---Method Exited: displayHomePage() ,Class: HomePageController.class");
 		return new ModelAndView("homePage");
+		
 	}
 }
