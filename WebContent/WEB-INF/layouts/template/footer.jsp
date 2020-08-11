@@ -1,3 +1,3 @@
 <div class="footer">
-	<h5>Copyright 2019 Grand Canyon University</h5>
+	<h5>Copyright 2020 Student Project</h5>
 </div>
